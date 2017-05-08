@@ -1,9 +1,9 @@
-package com.krypter;
+package com.krypter.services;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 @ApplicationPath("/")
-public class EmployeServices extends Application {
+public class KrypterServices extends Application {
 
 }

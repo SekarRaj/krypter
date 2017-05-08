@@ -1,4 +1,4 @@
-package com.krypter;
+package com.krypter.services;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -8,12 +8,12 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/employee")
-public class EmployeeCrudService {
+public class EmployeeService {
 	@GET
-	@Path("/{name}")
+	@Path("/{id}")
 	@Produces({ MediaType.TEXT_HTML })
-	public Response sayDude(@PathParam("name") final String name) {
-		return Response.status(200).entity("You sent " + name).build();
+	public Response sayDude(@PathParam("id") final String id) {
+		return Response.status(200).entity("You sent " + id).build();
 	}
 
 	@GET
