@@ -23,10 +23,14 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 			</plugin>
+
+			<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>1.2.0.Alpha4</version>
+			</plugin>
 		</plugins>
 	</build>
-	<!-- <repositories> <repository> <id>localRepo</id> <url>file://home/sekar/.m2/repository</url> 
-		</repository> </repositories> -->
 
 	<properties>
 		<resteasy.version>3.0.19.Final</resteasy.version>
@@ -52,11 +56,41 @@
 			<version>${resteasy.version}</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/net.sf.jt400/jt400 -->
 		<dependency>
-			<artifactId>krypter-jpa</artifactId>
-			<groupId>krypter-jpa</groupId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>net.sf.jt400</groupId>
+			<artifactId>jt400</artifactId>
+			<version>9.3</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/javax.enterprise/cdi-api -->
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>2.0-PFD2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.jboss.weld/weld-api -->
+		<dependency>
+			<groupId>org.jboss.weld</groupId>
+			<artifactId>weld-api</artifactId>
+			<version>3.0.Final</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.2.10.Final</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.2.10.Final</version>
+		</dependency>
+
 
 	</dependencies>
 </project>
