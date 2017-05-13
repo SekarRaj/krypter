@@ -7,19 +7,25 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.krypter.repository.EmployeeRepository;
+
 @Path("/employee")
 public class EmployeeService {
+
 	@GET
 	@Path("/{id}")
 	@Produces({ MediaType.TEXT_HTML })
 	public Response sayDude(@PathParam("id") final String id) {
-		return Response.status(200).entity("You sent " + id).build();
+		EmployeeRepository repo = EmployeeRepository.getInstance();
+		return Response.status(200).entity(repo.getEmployee(id)).build();
 	}
 
 	@GET
 	@Path("/")
-	@Produces({ MediaType.TEXT_HTML })
-	public Response sayHello() {
-		return Response.status(200).entity("This is just a string").build();
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response getEmployees() {
+		EmployeeRepository repo = EmployeeRepository.getInstance();
+		System.out.println(repo.getEmployees());
+		return Response.status(200).entity("Returning employees").build();
 	}
 }

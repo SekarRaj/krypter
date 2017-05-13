@@ -6,6 +6,9 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_generated"/>
+        <dependent-module archiveName="krypter-jpa-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/krypter-jpa/krypter-jpa">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="krypter"/>
         <property name="java-output-path" value="/krypter/target/classes"/>
     </wb-module>
