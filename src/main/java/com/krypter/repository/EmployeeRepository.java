@@ -3,6 +3,7 @@ package com.krypter.repository;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import com.krypter.dal.DataAccessLayer;
 import com.krypter.domain.Employee;
@@ -13,11 +14,11 @@ public class EmployeeRepository {
 	private static volatile EmployeeRepository INSTANCE;
 	private static Object lock = new Object();
 
-	// @Inject
 	private IdentifierGenerator idGenerator;
 
+	@PersistenceContext
 	private EntityManager em;
-
+	
 	private EmployeeRepository() {
 		idGenerator = new EmployeeIdentifier();
 		em = DataAccessLayer.getEntityManager();
@@ -33,10 +34,10 @@ public class EmployeeRepository {
 		return INSTANCE;
 	}
 
-	public String createEmployee(String firstName, String lastName, String dob) {
+	public String createEmployee(String name, String type, String ssn) {
 		em.getTransaction().begin();
 		String id = idGenerator.generateId();
-		Employee emp = new Employee(id, firstName, lastName, dob);
+		Employee emp = new Employee(id, name, type, ssn);
 		em.persist(emp);
 		em.getTransaction().commit();
 		return emp.getId();
@@ -45,9 +46,9 @@ public class EmployeeRepository {
 	public boolean editEmployee(Employee emp) {
 		em.getTransaction().begin();
 		Employee employee = em.find(Employee.class, emp.getId());
-		employee.setFirstName(emp.getFirstName());
-		employee.setLastName(emp.getLastName());
-		employee.setDepartment(emp.getDepartment());
+		employee.setName(emp.getName());
+		employee.setType(emp.getType());
+		employee.setType(emp.getType());
 		em.getTransaction().commit();
 		return true;
 	}
@@ -67,7 +68,6 @@ public class EmployeeRepository {
 
 	@SuppressWarnings("unchecked")
 	public List<Employee> getEmployees() {
-//		return em.createQuery("Employee.getAllEmployees", Employee.class).getResultList();
 		return em.createQuery("from Employee").getResultList();
 	}
 }

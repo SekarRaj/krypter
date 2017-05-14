@@ -9,29 +9,29 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({ @NamedQuery(name = "Employee.getAllEmployees", query = "Select e from Employee e") })
-@Table(name = "TBL_EMP_MST")
+@Table(name = "FPPEM")
 public class Employee {
 	@Id
-	@Column(name = "id")
+	@Column(name = "S1EMNO")
 	private String id;
 
-	@Column(name = "firstName")
-	private String firstName;
+	@Column(name = "S1EMNM")
+	private String name;
 
-	@Column(name = "lastName")
-	private String lastName;
+	@Column(name = "S1EMTY")
+	private String type;
 
-	@Column(name = "dept")
-	private String department;
+	@Column(name = "S1ESSN")
+	private String ssn;
 
 	public Employee() {
 	}
 
-	public Employee(String id, String firstName, String lastName, String department) {
+	public Employee(String id, String name, String type, String ssn) {
 		this.setId(id);
-		this.setFirstName(firstName);
-		this.setLastName(lastName);
-		this.setDepartment(department);
+		this.setName(name);
+		this.setType(type);
+		this.setSsn(ssn);
 	}
 
 	public String getId() {
@@ -42,32 +42,32 @@ public class Employee {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getType() {
+		return type;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setType(String type) {
+		this.type = type;
 	}
 
-	public String getDepartment() {
-		return department;
+	public String getSsn() {
+		return ssn;
 	}
 
-	public void setDepartment(String department) {
-		this.department = department;
+	public void setSsn(String ssn) {
+		this.ssn = ssn;
 	}
 
 	@Override
 	public String toString() {
-		return this.getId() + ", " + this.getFirstName() + ", " + this.getLastName() + ", " + this.getDepartment();
+		return this.getId() + ", " + this.getName() + ", " + this.getType() + ", " + this.getSsn();
 	}
 }
