@@ -20,6 +20,6 @@ public class AccountsPayableService {
 	@Path("/")
 	@Produces({ MediaType.TEXT_HTML })
 	public Response getReceivables() {
-		return Response.status(200).entity("Listing all payables ").build();
+		return Response.status(200).entity("Listing all payables.").build();
 	}
 }
