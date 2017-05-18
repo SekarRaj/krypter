@@ -3,6 +3,7 @@ package com.krypter.repository;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 
 import com.krypter.dal.DataAccessLayer;
@@ -15,8 +16,6 @@ public class EmployeeRepository {
 	private static Object lock = new Object();
 
 	private IdentifierGenerator idGenerator;
-
-	@PersistenceContext
 	private EntityManager em;
 	
 	private EmployeeRepository() {
@@ -35,11 +34,12 @@ public class EmployeeRepository {
 	}
 
 	public String createEmployee(String name, String type, String ssn) {
-		em.getTransaction().begin();
+		EntityTransaction et = em.getTransaction();
+		et.begin();
 		String id = idGenerator.generateId();
-		Employee emp = new Employee(id, name, type, ssn);
+		Employee emp = new Employee(id.trim(), name.trim(), type.trim(), ssn.trim());
 		em.persist(emp);
-		em.getTransaction().commit();
+		et.commit();
 		return emp.getId();
 	}
 

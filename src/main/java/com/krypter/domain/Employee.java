@@ -1,7 +1,9 @@
 package com.krypter.domain;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -12,16 +14,20 @@ import javax.persistence.Table;
 @Table(name = "FPPEM")
 public class Employee {
 	@Id
+	@Basic(optional = false, fetch = FetchType.EAGER)
 	@Column(name = "S1EMNO")
 	private String id;
 
 	@Column(name = "S1EMNM")
+	@Basic(optional = false, fetch = FetchType.EAGER)
 	private String name;
 
 	@Column(name = "S1EMTY")
+	@Basic(optional = false, fetch = FetchType.EAGER)
 	private String type;
 
 	@Column(name = "S1ESSN")
+	@Basic(optional = false, fetch = FetchType.EAGER)
 	private String ssn;
 
 	public Employee() {
