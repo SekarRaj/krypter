@@ -2,11 +2,10 @@ package com.krypter.identifiers;
 
 import java.util.Random;
 
-public class EmployeeIdentifier implements IdentifierGenerator{
+public class EmployeeIdentifier implements IdGenerator{
 
-	@Override
 	public String generateId() {
-		return "E" + Math.abs(new Random().nextInt());
+		return "E" + Math.abs(100000 + new Random().nextInt(900000));
 	}
 
 }

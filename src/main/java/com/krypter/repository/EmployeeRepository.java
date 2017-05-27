@@ -8,13 +8,13 @@ import javax.persistence.PersistenceContext;
 import com.krypter.dal.DataAccessLayer;
 import com.krypter.domain.Employee;
 import com.krypter.identifiers.EmployeeIdentifier;
-import com.krypter.identifiers.IdentifierGenerator;
+import com.krypter.identifiers.IdGenerator;
 
 public class EmployeeRepository {
 	private static volatile EmployeeRepository INSTANCE;
 	private static Object lock = new Object();
 
-	private IdentifierGenerator idGenerator;
+	private IdGenerator idGenerator;
 
 	@PersistenceContext
 	private EntityManager em;
@@ -37,6 +37,8 @@ public class EmployeeRepository {
 	public String createEmployee(String name, String type, String ssn) {
 		em.getTransaction().begin();
 		String id = idGenerator.generateId();
+		System.out.println(id + " generted with length " + id.length());
+		
 		Employee emp = new Employee(id, name, type, ssn);
 		em.persist(emp);
 		em.getTransaction().commit();
