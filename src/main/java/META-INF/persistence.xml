@@ -2,14 +2,9 @@
 <persistence version="2.1"
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="krypter-jpa" transaction-type="RESOURCE_LOCAL">
-<<<<<<< HEAD
-		<jta-data-source>java:jboss/datasources/KrypterDs</jta-data-source>		
-		
-=======
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	<persistence-unit name="krypter-jpa" transaction-type="RESOURCE_LOCAL">	
 		<jta-data-source>java:jboss/datasources/KrypterDs</jta-data-source>
->>>>>>> b2f494905915af66b1d4cae3ea9c4d351dbf8d83
+
 		<class>com.krypter.domain.Employee</class>
 
 		<properties>
@@ -20,9 +15,6 @@
 		</properties>
 	</persistence-unit>
 </persistence>
-<<<<<<< HEAD
 
 <!-- 			<property name="hibernate.transaction.jta.platform"
 				value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" /> -->
-=======
->>>>>>> b2f494905915af66b1d4cae3ea9c4d351dbf8d83
