@@ -28,7 +28,7 @@ public class EmployeeService {
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response getEmployees() {
 		EmployeeRepository repo = EmployeeRepository.getInstance();
-		return Response.status(200).entity(repo.getEmployees()).header("Access-Control-Allow-Origin", "*").build();
+		return Response.status(200).entity(repo.getEmployees()).build();
 	}
 
 	@POST
@@ -38,6 +38,6 @@ public class EmployeeService {
 	public Response createEmployee(Employee emp) {
 		EmployeeRepository repo = EmployeeRepository.getInstance();
 		String id = repo.createEmployee(emp.getName(), emp.getType(), emp.getSsn());
-		return Response.status(200).entity("Employee Created " + id).header("Access-Control-Allow-Origin", "*").build();
+		return Response.status(200).entity(id).build();
 	}
 }

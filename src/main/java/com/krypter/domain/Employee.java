@@ -10,7 +10,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@NamedQueries({ @NamedQuery(name = "Employee.getAllEmployees", query = "Select e from Employee e") })
+//@NamedQueries({ @NamedQuery(name = "Employee.getAllEmployees", query = "Select e from Employee e") })
 @Table(name = "FPPEM")
 public class Employee {
 	@Id
